@@ -2,6 +2,7 @@ import express, {response} from 'express';
 import * as fs from "node:fs";
 const app = express();
 const port = 3000;
+app.use(express.json());
 
 const books = [
     {
@@ -31,7 +32,7 @@ app.get('/books/:isbn', (req, res) => {
     }
 })
 
-app.post('books', (req, res) => {
+app.post('/books', (req, res) => {
     const { isbn, title, year, author } = req.body;
     const book = {
         isbn,
@@ -40,6 +41,8 @@ app.post('books', (req, res) => {
         author
     }
     books.push(book);
+    res.send(books);
+
 })
 
 app.put('/books/:isbn', (req, res) => {
