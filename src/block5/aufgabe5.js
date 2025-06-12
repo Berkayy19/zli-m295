@@ -123,16 +123,12 @@ app.post('/lends', (req, res) => {
 
     const returned_at = "Not returned yet"
     let id = randomUUID();
-    while (true) {
-        const found = lends.find(l => l.id === id);
-        if (!found) break;
+    while (lends.find(l => l.id === id)) {
         id = randomUUID();
     }
 
     let isbn = randomUUID();
-    while (true) {
-        const found = lends.find(l => l.isbn === isbn);
-        if (!found) break;
+    while (lends.find(l => l.isbn === isbn)) {
         isbn = randomUUID();
     }
 
