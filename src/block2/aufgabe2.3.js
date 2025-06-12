@@ -5,4 +5,5 @@ function simuliereVerzögerung(ms) {
 async function addiereNachVerzögerung(zahl1, zahl2, verzögerung) {
     await simuliereVerzögerung(verzögerung).then(() => console.log(zahl1 + zahl2));
 }
-addiereNachVerzögerung(5, 10, 2000);
+addiereNachVerzögerung(5, 10,
+    2000);
